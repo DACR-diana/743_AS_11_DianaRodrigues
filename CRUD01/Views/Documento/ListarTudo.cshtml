@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listar Tudo</title>
+</head>
+<body>
+    <h1>
+        Lista de Documentos 
+    </h1>
+
+    <table border="1">
+        <tr>
+            <th>Uid</th>
+            <th>Tipo De Documento</th>
+            <th>Designação</th>
+            <th>Data</th>
+            <th>Estado</th>
+        </tr>
+        @{
+            foreach (var doc in Model) {
+                <tr>
+                    <td>@doc.uid</td>
+                    <td>@doc.lstNomeTipoDocumento</td>
+                    <td>@doc.designacao</td>
+                    <td>@doc.dtPublicacao</td>
+                    <td>
+                        @if(doc.estado == 0) {
+                            <span>Inativo</span>
+                        }
+                        else {
+                            <span>Ativo</span>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>
